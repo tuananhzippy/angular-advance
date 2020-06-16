@@ -1,1 +1,33 @@
-<p>track-by-function works!</p>
+<h2>MegaAds Technical Team</h2>
+
+<table border="1" width="100%" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>
+                <button type="button" (click)="addMember()">New</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of megaadsTechnical; index as idx; trackBy: trackById">
+            <td align="center">{{ idx + 1 }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.phone }}</td>
+            <td>{{ item.address }}</td>
+            <td align="center">
+                <button type="button" (click)="removeMember(idx)">Remove</button>
+            </td>
+        </tr>
+        <tr *ngIf="megaadsTechnical.length == 0">
+            <td colspan="5">No data...</td>
+        </tr>
+    </tbody>
+</table>
+
+<p class="note-page">Đây là một trick để tối ưu performance khi chúng ta phải render một list danh sách. Trong nhiều trường hợp chúng ta sẽ phải reder lại toàn bộ khi dữ liệu thay đổi (<b>thêm bản ghi mới, bản ghi cũ vẫn giữ nguyên</b>).</p>
+
+<p class="note-page"><b>Track by Function</b>: sẽ kiểm tra xem phần tử nào bị thay đổi, thì chỉ cập nhật đúng phần tử đó, không <b>render</b> lại toàn bộ.</p>

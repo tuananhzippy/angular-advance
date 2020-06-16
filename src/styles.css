@@ -190,3 +190,7 @@ svg#clouds {
         visibility: hidden;
     }
 }
+
+.note-page {
+    margin-top: 15px;
+}
